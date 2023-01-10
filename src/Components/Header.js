@@ -1,11 +1,23 @@
-import { getDefaultNormalizer } from "@testing-library/react"
+import PropTypes from 'prop-types'
+import Button from './Button'
 
-const Header = () => {
+const Header = ({ title }) => {
   return (
-    <header>
-      <h1>Task Tracker</h1>
+    <header className='header'>
+      <h1>{ title }</h1>
+      <Button color='green' text='Hello' />
+      <Button color='red' text='test' />
+      <Button color='blue' text='Hello' />
     </header>
   )
+}
+
+Header.defaultProps = {
+  title: 'Task Tracker',
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default Header
